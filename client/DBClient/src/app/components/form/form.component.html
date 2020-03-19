@@ -1,0 +1,19 @@
+<!-- <div class="fog"></div> -->
+<div class="form-container">
+    <h1 style="text-align: center;">Create {{title}}</h1>
+    <form [formGroup]="form" class="form">
+        <input
+            *ngFor="let pole of columns"
+            type="text"
+            placeholder={{pole}}
+            formControlName={{pole}}
+            class="inputPole">
+    </form>
+        <button
+            mat-raised-button
+            (click)="addRecord()"
+            class="button"
+            [disabled]="!this.form.valid">
+            Create
+        </button>
+</div>

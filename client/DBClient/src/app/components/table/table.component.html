@@ -1,0 +1,30 @@
+<div class="table" *ngIf="table">
+  <div class="search-and-add-container">
+    <input
+      [(ngModel)]="search"
+      placeholder="Search"
+      (change)="filter()"
+      *ngIf="table?.length !==0">
+    <button
+      mat-mini-fab
+      (click)="openDialog()"
+      class="button"
+      >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  
+  <table *ngIf="filteredList && filteredList?.length !==0; else noRecord" mat-table [dataSource]="filteredList" class="mat-elevation-z8">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef> {{column.toUpperCase()}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="deleteRecord(row.id)"></tr>
+    </table>
+  
+    <ng-template #noRecord>
+      <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">No records.</h1>
+    </ng-template>
+</div>

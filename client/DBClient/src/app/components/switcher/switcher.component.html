@@ -1,0 +1,9 @@
+<div class="switch-container">
+    <mat-form-field class="entity-switch">
+        <mat-select (selectionChange)="switchTable($event.value)">
+            <mat-option *ngFor='let table of tables' [value]='table'>
+                {{table}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

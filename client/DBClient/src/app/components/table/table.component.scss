@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.search-and-add-container {
+    height: 50px;
+    display: flex;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    
+}
+
+.mat-row {
+    transition: background-color .3s;
+    cursor: pointer;
+    &:hover {
+        background-color: #c7c7c7;
+    }
+}
